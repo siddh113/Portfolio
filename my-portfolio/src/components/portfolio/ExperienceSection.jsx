@@ -5,39 +5,30 @@ import { Briefcase, Calendar, MapPin } from 'lucide-react';
 const experiences = [
   {
     id: 1,
-    role: "Senior Full-Stack Developer",
-    company: "Tech Innovations Inc.",
-    location: "San Francisco, CA",
-    period: "2022 - Present",
-    description: "Leading development of enterprise-scale applications, mentoring junior developers, and architecting cloud-native solutions using React, Node.js, and AWS.",
-    highlights: ["Led team of 5 developers", "Reduced load time by 60%", "Implemented CI/CD pipelines"]
+    role: "Software Engineer Intern",
+    company: "MeshWorks",
+    location: "Ohio, OH",
+    period: "Jan 2025 - Jun 2025",
+    description: "Designed and implemented AI driven ETL workflows in Microsoft Fabric to improve data quality, reliability, and processing efficiency. Worked cross functionally as a Full Stack Developer and data engineer to deploy production ready features and optimize AI powered pipelines.",
+    highlights: ["Reduced ETL processing time by 30%", "Increased pipeline throughput by 35%", "Implemented CI/CD pipelines", "Improved reporting data quality by 25%"]
   },
   {
     id: 2,
-    role: "Full-Stack Developer",
-    company: "Digital Agency Co.",
-    location: "New York, NY",
-    period: "2020 - 2022",
-    description: "Developed and maintained client web applications, collaborated with design teams, and implemented responsive, accessible interfaces.",
-    highlights: ["Delivered 20+ client projects", "Built custom CMS solutions", "API integration specialist"]
+    role: "Junior Software Developer",
+    company: "MeshWorks",
+    location: "Ohio, OH",
+    period: "Sept 2023 - Jun 2024",
+    description: "Delivered end to end full stack solutions by diagnosing system issues, building scalable backend APIs, and developing responsive front end interfaces. Improved application performance, reliability, and user engagement across a high traffic production environment.",
+    highlights: ["improving load times by 20% for 5,000+ weekly active users", "Streamlined 10+ third party integrations through clear API documentation, cutting partner onboarding time by 30%", "API integration specialist"]
   },
   {
     id: 3,
-    role: "Frontend Developer",
-    company: "StartUp Labs",
-    location: "Austin, TX",
-    period: "2018 - 2020",
-    description: "Built interactive user interfaces for SaaS products, focused on performance optimization and modern JavaScript frameworks.",
-    highlights: ["React & Vue.js expert", "Mobile-first development", "A/B testing implementation"]
-  },
-  {
-    id: 4,
-    role: "Junior Web Developer",
-    company: "Creative Studios",
-    location: "Los Angeles, CA",
-    period: "2016 - 2018",
-    description: "Started career building websites and web applications, learning best practices and modern development workflows.",
-    highlights: ["WordPress development", "HTML/CSS/JavaScript", "Client communication"]
+    role: "Backend Developer Intern",
+    company: "Eco Energio",
+    location: "Aberdeen, UK",
+    period: "May 2021 - Sept 2021",
+    description: "Analyzed large scale energy consumption datasets to deliver accurate carbon footprint insights for commercial buildings. Supported data driven sustainability initiatives that improved energy efficiency and reduced emissions across client portfolios.",
+    highlights: ["Energy analytics", "Carbon footprint tracking", "Data accuracy optimization"]
   }
 ];
 

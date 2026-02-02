@@ -18,15 +18,21 @@ export default function ContactSection() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setIsSubmitting(false);
+    const { name, email, subject, message } = formData;
+    const mailto = `mailto:siddharthketan@gmail.com?subject=${encodeURIComponent(
+      subject || 'Contact Form Submission'
+    )}&body=${encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\n\n${message}`
+    )}`;
+    // Use a temporary anchor to trigger the mail client reliably
+    const link = document.createElement('a');
+    link.href = mailto;
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
     setIsSubmitted(true);
-    setFormData({ name: '', email: '', subject: '', message: '' });
-    
     setTimeout(() => setIsSubmitted(false), 5000);
   };
 
@@ -38,15 +44,14 @@ export default function ContactSection() {
   };
 
   const contactInfo = [
-    { icon: Mail, label: "Email", value: "hello@johndoe.com", href: "mailto:hello@johndoe.com" },
-    { icon: Phone, label: "Phone", value: "+1 (555) 123-4567", href: "tel:+15551234567" },
-    { icon: MapPin, label: "Location", value: "San Francisco, CA", href: "#" }
+    { icon: Mail, label: "Email", value: "siddharthketan@gmail.com", href: "mailto:siddharthketan@gmail.com" },
+    { icon: Phone, label: "Phone", value: "+1 (347) 216-1730", href: "tel:+13472161730" },
+    { icon: MapPin, label: "Location", value: "New york City, NY"}
   ];
 
   const socialLinks = [
-    { icon: Github, href: "https://github.com", label: "GitHub" },
-    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-    { icon: Twitter, href: "https://twitter.com", label: "Twitter" }
+    { icon: Github, href: "https://github.com/siddh113", label: "GitHub" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/siddharthkenia", label: "LinkedIn" }
   ];
 
   return (
@@ -191,7 +196,7 @@ export default function ContactSection() {
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        placeholder="John Smith"
+                        placeholder=""
                         required
                         className="h-12 bg-zinc-800 border-zinc-700 focus:border-amber-500 focus:ring-amber-500/20 rounded-xl text-white placeholder:text-zinc-500"
                       />
@@ -204,7 +209,7 @@ export default function ContactSection() {
                         type="email"
                         value={formData.email}
                         onChange={handleChange}
-                        placeholder="john@example.com"
+                        placeholder=""
                         required
                         className="h-12 bg-zinc-800 border-zinc-700 focus:border-amber-500 focus:ring-amber-500/20 rounded-xl text-white placeholder:text-zinc-500"
                       />

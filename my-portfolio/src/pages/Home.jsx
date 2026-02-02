@@ -15,7 +15,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="py-8 bg-black border-t border-zinc-900 text-center relative">
         <p className="text-zinc-500 text-sm font-light">
-          © {new Date().getFullYear()} John Doe. Crafted with passion.
+          © {new Date().getFullYear()} Siddharth Kenia. All rights reserved.
         </p>
       </footer>
     </div>
