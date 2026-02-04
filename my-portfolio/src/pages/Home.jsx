@@ -1,6 +1,7 @@
 import React from 'react';
 import HeroSection from '@/components/portfolio/HeroSection';
 import ExperienceSection from '@/components/portfolio/ExperienceSection';
+import ExpertiseSection from '@/components/portfolio/ExpertiseSection';
 import ProjectsSection from '@/components/portfolio/ProjectSection';
 import ContactSection from '@/components/portfolio/ContactSection';
 
@@ -9,6 +10,7 @@ export default function Home() {
     <div className="min-h-screen bg-black">
       <HeroSection />
       <ExperienceSection />
+      <ExpertiseSection />
       <ProjectsSection />
       <ContactSection />
       
