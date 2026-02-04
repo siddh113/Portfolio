@@ -182,7 +182,7 @@ export default function ProjectsSection() {
                   </p>
 
                   <div className="flex flex-wrap gap-2">
-                    {project.technologies.slice(0, 4).map((tech, i) => (
+                    {project.technologies.map((tech, i) => (
                       <span 
                         key={i}
                         className="px-2 py-1 text-xs font-medium text-zinc-400 bg-zinc-800/80 rounded-md border border-zinc-700/50"
@@ -190,11 +190,6 @@ export default function ProjectsSection() {
                         {tech}
                       </span>
                     ))}
-                    {project.technologies.length > 4 && (
-                      <span className="px-2 py-1 text-xs font-medium text-zinc-500 bg-zinc-800/50 rounded-md">
-                        +{project.technologies.length - 4}
-                      </span>
-                    )}
                   </div>
                 </div>
               </motion.div>
