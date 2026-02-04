@@ -49,7 +49,7 @@ const expertiseGroups = [
 
 export default function ExpertiseSection() {
   return (
-    <section id="expertise" className="py-24 md:py-32 bg-black relative overflow-hidden">
+    <section id="expertise" className="py-24 md:py-32 relative overflow-hidden">
       {/* Ambient glows */}
       <div className="absolute inset-0 opacity-40">
         <div

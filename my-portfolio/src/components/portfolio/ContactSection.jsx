@@ -1,64 +1,44 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Send, Mail, MapPin, Phone, Linkedin, Github, Twitter, CheckCircle } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
+import { ArrowUpRight, Mail, Linkedin, Github, FileText } from 'lucide-react';
+
+const contactCards = [
+  {
+    title: 'Email',
+    subtitle: 'Best for project inquiries',
+    href: 'mailto:siddharthketan@gmail.com',
+    icon: Mail,
+  },
+  {
+    title: 'LinkedIn',
+    subtitle: 'Professional networking',
+    href: 'https://www.linkedin.com/in/siddharthkenia/',
+    icon: Linkedin,
+  },
+  {
+    title: 'GitHub',
+    subtitle: 'Code repositories',
+    href: 'https://github.com/siddh113',
+    icon: Github,
+  }
+];
+
+const lookingFor = [
+  'Full Stack Software Engineering Roles',
+  'Data Engineering & ETL Projects',
+  'Applied AI & ML Development',
+  'Cloud-Based System Design',
+  'Product-Focused Engineering Teams',
+  'Open Source & Real-World Project collaborations',
+];
 
 export default function ContactSection() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const { name, email, subject, message } = formData;
-    const mailto = `mailto:siddharthketan@gmail.com?subject=${encodeURIComponent(
-      subject || 'Contact Form Submission'
-    )}&body=${encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\n\n${message}`
-    )}`;
-    // Use a temporary anchor to trigger the mail client reliably
-    const link = document.createElement('a');
-    link.href = mailto;
-    link.style.display = 'none';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 5000);
-  };
-
-  const handleChange = (e) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
-  };
-
-  const contactInfo = [
-    { icon: Mail, label: "Email", value: "siddharthketan@gmail.com", href: "mailto:siddharthketan@gmail.com" },
-    { icon: Phone, label: "Phone", value: "+1 (347) 216-1730", href: "tel:+13472161730" },
-    { icon: MapPin, label: "Location", value: "New york City, NY"}
-  ];
-
-  const socialLinks = [
-    { icon: Github, href: "https://github.com/siddh113", label: "GitHub" },
-    { icon: Linkedin, href: "https://www.linkedin.com/in/siddharthkenia", label: "LinkedIn" }
-  ];
-
   return (
     <section id="contact" className="py-24 md:py-32 bg-black relative overflow-hidden">
       {/* 3D Grid Background */}
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute inset-0" 
+        <div
+          className="absolute inset-0"
           style={{
             backgroundImage: `
               linear-gradient(rgba(250, 204, 21, 0.1) 1px, transparent 1px),
@@ -81,188 +61,66 @@ export default function ContactSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-left mb-12"
         >
-          <span className="inline-block px-4 py-2 mb-4 text-sm font-medium tracking-widest text-amber-400 bg-amber-500/10 rounded-full border border-amber-500/20">
-            GET IN TOUCH
-          </span>
-          <h2 className="text-4xl md:text-5xl font-light text-white tracking-tight mb-4">
-            Let's <span className="font-semibold bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">Connect</span>
+          <h2 className="text-5xl md:text-6xl font-light text-white tracking-tight">
+            Get in Touch
           </h2>
-          <p className="text-zinc-400 max-w-xl mx-auto">
-            Have a project in mind or just want to chat? I'd love to hear from you. 
-            Let's create something amazing together.
-          </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-5 gap-12">
-          {/* Contact Info */}
+        <div className="grid gap-12 lg:grid-cols-2">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-2 space-y-8"
           >
-            <div className="space-y-6">
-              {contactInfo.map((item, index) => (
+            <div className="grid gap-6 sm:grid-cols-2">
+              {contactCards.map((card, index) => (
                 <motion.a
-                  key={index}
-                  href={item.href}
+                  key={card.title}
+                  href={card.href}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  whileHover={{ 
-                    scale: 1.02,
-                    rotateY: -5,
-                    transition: { duration: 0.3 }
-                  }}
-                  style={{ transformStyle: 'preserve-3d' }}
-                  className="flex items-center gap-4 p-5 bg-zinc-900 rounded-xl border border-zinc-800 hover:border-amber-500/50 hover:shadow-xl hover:shadow-amber-500/10 transition-all duration-300 group"
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                  className="group relative rounded-2xl border border-zinc-800 bg-zinc-900/70 p-6 shadow-xl transition-all duration-300 hover:border-amber-500/50 hover:shadow-amber-500/10"
                 >
-                  <div className="p-3 bg-amber-500/10 rounded-xl text-amber-400 border border-amber-500/20 group-hover:bg-amber-500/20 group-hover:shadow-lg group-hover:shadow-amber-500/30 transition-all">
-                    <item.icon className="w-5 h-5" />
+                  <div className="flex items-center justify-between">
+                    <div className="h-11 w-11 rounded-xl bg-zinc-800/80 border border-zinc-700 flex items-center justify-center text-zinc-200">
+                      <card.icon className="w-5 h-5" />
+                    </div>
+                    <ArrowUpRight className="w-4 h-4 text-zinc-500 group-hover:text-amber-400 transition-colors" />
                   </div>
-                  <div>
-                    <p className="text-sm text-zinc-500 font-medium">{item.label}</p>
-                    <p className="text-white font-medium">{item.value}</p>
+                  <div className="mt-6">
+                    <p className="text-xs uppercase tracking-widest text-zinc-500">{card.title}</p>
+                    <p className="mt-2 text-sm text-zinc-300">{card.subtitle}</p>
                   </div>
                 </motion.a>
               ))}
             </div>
-
-            {/* Social Links */}
-            <div className="pt-6 border-t border-zinc-800">
-              <p className="text-sm font-medium text-zinc-400 mb-4">Follow me on social media</p>
-              <div className="flex gap-3">
-                {socialLinks.map((social, index) => (
-                  <motion.a
-                    key={index}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: 0.3 + index * 0.1 }}
-                    whileHover={{ scale: 1.15, rotateZ: 5 }}
-                    className="p-3 bg-zinc-900 rounded-xl border border-zinc-800 text-zinc-400 hover:text-amber-400 hover:border-amber-500/50 hover:shadow-lg hover:shadow-amber-500/20 transition-all duration-300"
-                    aria-label={social.label}
-                  >
-                    <social.icon className="w-5 h-5" />
-                  </motion.a>
-                ))}
-              </div>
-            </div>
           </motion.div>
 
-          {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            whileHover={{ 
-              rotateY: -2,
-              transition: { duration: 0.3 }
-            }}
-            style={{ transformStyle: 'preserve-3d' }}
-            className="lg:col-span-3"
           >
-            <form onSubmit={handleSubmit} className="bg-zinc-900 p-8 rounded-2xl border border-zinc-800 shadow-2xl relative overflow-hidden">
-              {/* Shine effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-              
-              {isSubmitted ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="text-center py-12"
+            <p className="text-xs tracking-widest text-zinc-500 uppercase mb-4">
+              What I'm looking for
+            </p>
+            <div className="space-y-3">
+              {lookingFor.map((item) => (
+                <div
+                  key={item}
+                  className="flex items-center gap-3 rounded-xl border border-zinc-800 bg-zinc-950/50 px-4 py-3 text-sm text-zinc-200"
                 >
-                  <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-green-500/30 shadow-lg shadow-green-500/30">
-                    <CheckCircle className="w-8 h-8 text-green-400" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-white mb-2">Message Sent!</h3>
-                  <p className="text-zinc-400">Thank you for reaching out. I'll get back to you soon.</p>
-                </motion.div>
-              ) : (
-                <div className="space-y-6 relative">
-                  <div className="grid sm:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="name" className="text-zinc-300">Your Name</Label>
-                      <Input
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        placeholder=""
-                        required
-                        className="h-12 bg-zinc-800 border-zinc-700 focus:border-amber-500 focus:ring-amber-500/20 rounded-xl text-white placeholder:text-zinc-500"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="email" className="text-zinc-300">Email Address</Label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder=""
-                        required
-                        className="h-12 bg-zinc-800 border-zinc-700 focus:border-amber-500 focus:ring-amber-500/20 rounded-xl text-white placeholder:text-zinc-500"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="subject" className="text-zinc-300">Subject</Label>
-                    <Input
-                      id="subject"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      placeholder="Project Collaboration"
-                      required
-                      className="h-12 bg-zinc-800 border-zinc-700 focus:border-amber-500 focus:ring-amber-500/20 rounded-xl text-white placeholder:text-zinc-500"
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="message" className="text-zinc-300">Your Message</Label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Tell me about your project..."
-                      required
-                      rows={5}
-                      className="bg-zinc-800 border-zinc-700 focus:border-amber-500 focus:ring-amber-500/20 rounded-xl resize-none text-white placeholder:text-zinc-500"
-                    />
-                  </div>
-
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full h-12 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-black font-medium rounded-xl transition-all duration-300 shadow-lg shadow-amber-500/50 hover:shadow-xl hover:shadow-amber-500/60 transform hover:scale-[1.02]"
-                  >
-                    {isSubmitting ? (
-                      <span className="flex items-center gap-2">
-                        <div className="w-4 h-4 border-2 border-black/30 border-t-black rounded-full animate-spin" />
-                        Sending...
-                      </span>
-                    ) : (
-                      <span className="flex items-center gap-2">
-                        <Send className="w-4 h-4" />
-                        Send Message
-                      </span>
-                    )}
-                  </Button>
+                  <span className="h-2 w-2 rounded-full bg-zinc-500" />
+                  <span>{item}</span>
                 </div>
-              )}
-            </form>
+              ))}
+            </div>
           </motion.div>
         </div>
       </div>

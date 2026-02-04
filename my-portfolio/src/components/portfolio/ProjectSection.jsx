@@ -57,7 +57,7 @@ const projects = [
   }
 ];
 
-const categories = ["All", "Full-Stack", "SaaS", "AI/ML", "Health Tech", "Marketplace", "Analytics"];
+const categories = ["All", "Full-Stack", "AI/ML", "Analytics"];
 
 export default function ProjectsSection() {
   const [activeCategory, setActiveCategory] = useState("All");
