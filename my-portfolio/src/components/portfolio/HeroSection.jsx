@@ -56,8 +56,8 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed font-light"
           >
-            Crafting immersive digital experiences with cutting-edge technology. 
-            Specialized in full-stack development, 3D web experiences, and scalable architecture.
+            Creating high-performance web applications powered by modern full stack technologies. 
+            Specialized in full-stack development and scalable architecture.
           </motion.p>
 
           <motion.div
