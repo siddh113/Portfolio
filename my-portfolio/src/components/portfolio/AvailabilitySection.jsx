@@ -26,29 +26,23 @@ export default function AvailabilitySection() {
             transition={{ duration: 0.5 }}
             className="rounded-2xl border border-zinc-800 bg-zinc-950/60 p-6 md:p-8 shadow-2xl"
           >
-            <div className="flex items-start justify-between gap-6">
-              <div className="space-y-6">
-                <div>
-                  <p className="text-xs tracking-widest text-zinc-500 uppercase">Current Availability</p>
-                </div>
-                <div className="grid gap-6 sm:grid-cols-3">
-                  <div className="space-y-2">
-                    <p className="text-sm text-zinc-400">Response Time</p>
-                    <p className="text-white font-semibold">&lt; 24 hours</p>
-                  </div>
-                  <div className="space-y-2">
-                    <p className="text-sm text-zinc-400">Timezone</p>
-                    <p className="text-white font-semibold">EST (UTC-5)</p>
-                  </div>
-                  <div className="space-y-2">
-                    <p className="text-sm text-zinc-400">Work Type</p>
-                    <p className="text-white font-semibold">Remote &amp; On-site</p>
-                  </div>
+            <div className="space-y-6">
+              <div className="flex items-start justify-between gap-6">
+                <p className="text-xs tracking-widest text-zinc-500 uppercase">Current Availability</p>
+                <div className="flex items-center gap-2 text-emerald-400 text-sm whitespace-nowrap">
+                  <span className="inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+                  Available
                 </div>
               </div>
-              <div className="flex items-center gap-2 text-emerald-400 text-sm whitespace-nowrap">
-                <span className="inline-flex h-2 w-2 rounded-full bg-emerald-500" />
-                Available
+              <div className="flex items-center justify-between gap-6">
+                <div className="space-y-2">
+                  <p className="text-sm text-zinc-400">Response Time</p>
+                  <p className="text-white font-semibold">&lt; 24 hours</p>
+                </div>
+                <div className="space-y-2 text-right">
+                  <p className="text-sm text-zinc-400">Timezone</p>
+                  <p className="text-white font-semibold">EST (UTC-5)</p>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -74,7 +68,7 @@ export default function AvailabilitySection() {
                 </div>
                 <div className="flex items-center justify-between gap-4">
                   <span className="text-zinc-400">Work Style</span>
-                  <span className="text-white font-semibold">Remote &amp; On-site</span>
+                  <span className="text-white font-semibold">On-site, Hybrid &amp; Remote</span>
                 </div>
                 <div className="flex items-center justify-between gap-4">
                   <span className="text-zinc-400">Travel</span>
